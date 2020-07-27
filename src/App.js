@@ -72,13 +72,16 @@ function App() {
       setWinMessage(`${itemArray[2]} won`);
     }
   };
+
+  const isNotEmpty = (element) => {
+          if(element !== "empty")
+             return true
+          return false   
+  }
   
   const isTie = () => {
-      if(!winMessage && itemArray.every((element)=>{
-        if(element !== "empty")
-          return true;
-      }))
-      setWinMessage("The Game is Tie");   
+      if(!winMessage && itemArray.every(isNotEmpty))
+      setWinMessage("Game Tied");  
   };
 
   const changeItem = (itemNumber) =>{
